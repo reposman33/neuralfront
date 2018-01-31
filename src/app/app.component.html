@@ -1,0 +1,69 @@
+<div class="container col-md-6 col-xs-12 col-md-offset-3">
+  <div class="header">
+  <!---  <nav>
+      <ul class="nav nav-pills pull-right">
+        <li role="presentation" class="active" (click)="displayAbout=!displayAbout"><a href="#">About</a></li>
+      </ul>
+    </nav>-->
+    <h3 class="text-muted">
+      Welcome to the Fruit Classifier
+    </h3>
+  </div>
+  <hr>
+  <div class="jumbotron">
+    <form class="form-group" (ngSubmit)="onSubmit()">
+      <div style="margin-bottom: 10px">
+        <div class="input-group-prepend">
+          <span id="inputText" class="input-group-text">Kies afbeelding:</span>
+        </div>
+        <input type="file"
+               id="upload"
+               class="form-control mb-5"
+               (change)="fileSelected($event.target.files, input)"
+               accept="image/jpeg"
+               #input
+               aria-describedby="ïnputText">
+      </div>
+      <button class="btn btn-primary pull-right" type="submit">Upload</button>
+    </form>
+  </div>
+
+  <figure class="figure bg-info col-md-6 col-xs-12 col-md-offset-3" *ngIf="img.alt.length">
+    <img class="figure-img img-fluid rounded center-block" id="uploadFile" [src]="img.src" [width]="img.width"
+         [alt]="img.alt">
+    <figcaption class="figure-caption text-center" [innerHTML]="classification"></figcaption>
+  </figure><!--*ngIf="img.alt.length"-->
+</div>
+
+<!--
+<button type="button" class="btn btn-info"
+        (click)="openModal(template)">Create template modal</button>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right"
+            aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    This is a modal.
+  </div>
+</ng-template>
+-->
+
+<!--
+<div class="well col-xs-12 col-md-3 col-md-offset-5" *ngIf="displayAbout">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="displayAbout=!displayAbout">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <p>Met Machine Learning kun je fruit in afbeeldingen herkennen en classificeren.
+    Door:</p>
+  <ul>
+    <li>Linda Bergman</li>
+    <li>Marc Bakker (Angular)</li>
+    <li>Thijs</li>
+  </ul>
+</div>
+-->
