@@ -4,10 +4,11 @@ import {FormBuilder, FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import {UploadService} from './upload.service';
-import {RouterModule} from '@angular/router';
+import {RouterModule,Routes} from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { PredictComponent } from './predict/predict.component';
 import { HeaderComponent } from './header/header.component';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     UploadService,

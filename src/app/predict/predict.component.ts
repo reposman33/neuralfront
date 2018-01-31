@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UploadService} from './predict/upload.service';
+import {UploadService} from '../upload.service';
 import {Form} from '@angular/forms';
 import {RouteReuseStrategy, RouterModule, Routes} from '@angular/router';
 

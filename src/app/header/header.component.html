@@ -1,3 +1,28 @@
-<p>
-  header works!
-</p>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a routerLink="/predict">Predict</a></li>
+        <li routerLinkActive="active"><a routerLink="/about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<header class="jumbotron">
+  <div class="container" style="height:40px;margin-top:10px;margin-bottom:10px">
+    <div div="row row-header">
+      <div class="col-xs-8">
+        <h1>Fruit</h1>
+      </div>
+    </div>
+  </div>
+</header>
