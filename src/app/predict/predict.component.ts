@@ -1,14 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {UploadService} from './upload.service';
+import {UploadService} from './predict/upload.service';
 import {Form} from '@angular/forms';
 import {RouteReuseStrategy, RouterModule, Routes} from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'predict',
+  templateUrl: './predict.component.html',
+  styleUrls: ['./predict.component.css']
 })
-export class AppComponent implements OnInit {
+
+export class PredictComponent implements OnInit {
   fileToUpload: File;
   fileReader;
   img = {
@@ -38,11 +39,11 @@ export class AppComponent implements OnInit {
     this.uploadService.uploadFile(this.fileToUpload, this.fileToUpload.name)
       .subscribe(response => {
         console.log('response = ', response['prediction']);
-          this.classification = response['prediction'].join(',');
-        },
+        this.classification = response['prediction'].join(',');
+      },
         error => {
-          console.log(error);
-        });
+        console.log(error);
+      });
   }
 
   fileSelected(uploadFiles, input) {

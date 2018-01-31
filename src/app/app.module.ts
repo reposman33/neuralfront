@@ -5,15 +5,22 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import {UploadService} from './upload.service';
 import {RouterModule} from '@angular/router';
+import { AboutComponent } from './about/about.component';
+import { PredictComponent } from './predict/predict.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AboutComponent,
+    PredictComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,  ],
+    HttpClientModule
+  ],
   providers: [
     UploadService,
     FormBuilder,
