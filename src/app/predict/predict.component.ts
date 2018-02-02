@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {UploadService} from '../upload.service';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {Form} from '@angular/forms';
-import {RouteReuseStrategy, RouterModule, Routes} from '@angular/router';
+import {UploadService} from '../upload.service';
 
 @Component({
   selector: 'predict',
@@ -9,41 +8,54 @@ import {RouteReuseStrategy, RouterModule, Routes} from '@angular/router';
   styleUrls: ['./predict.component.css']
 })
 
-export class PredictComponent implements OnInit {
+export class PredictComponent {
   fileToUpload: File;
   fileReader;
   img = {
     src: '',
     width: 320,
-    height: 250,
     alt: ''
   };
   imgsrc: string;
   classification: string;
   displayAbout = false;
+  useClass = {fadeInFadeOut:false};
+  constraints = { video: {width:640, height:480}, audio: false};
 
   constructor(private uploadService: UploadService) {
   }
 
-  ngOnInit() {
+  activateCamera() {
+  // Get access to the camera!
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      // Not adding `{ audio: true }` since we only want video now
+      navigator.mediaDevices.getUserMedia(this.constraints).then(function(stream) {
+        const video = document.querySelector('video');
+        video.srcObject = stream;
+        video.onloadedmetadata = (e) => {video.play()};
+      });
+    }
   }
 
   onSubmit(form: Form) {
     if (!this.fileToUpload) {
-      console.log('!this.fileToUpload: ', this.fileToUpload);
       return;
     }
 
     this.classification = 'Classifying...';
+    this.useClass = {'fadeInFadeOut': true};
 
     this.uploadService.uploadFile(this.fileToUpload, this.fileToUpload.name)
       .subscribe(response => {
-        console.log('response = ', response['prediction']);
-        this.classification = response['prediction'].join(',');
-      },
+        setTimeout(() => {
+          this.classification = response['prediction'].join(',');
+          this.useClass.fadeInFadeOut = false;
+        },1000)
+        },
         error => {
-        console.log(error);
-      });
+          console.log(error);
+          this.classification = '';
+        });
   }
 
   fileSelected(uploadFiles, input) {

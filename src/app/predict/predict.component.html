@@ -12,17 +12,39 @@
                id="upload"
                class="form-control mb-5"
                (change)="fileSelected($event.target.files, input)"
+               (click)="classification = ''"
                accept="image/jpeg"
                #input
                aria-describedby="ïnputText">
       </div>
-      <button class="btn btn-primary pull-right" type="submit">Upload</button>
+      <button class="btn btn-primary" type="submit">Upload</button>
+      <button type="button" class="btn btn-primary col-md-offset-8">Take photo</button>
     </form>
   </div>
 
-  <figure class="figure bg-info col-md-6 col-xs-12 col-md-offset-3" *ngIf="img.alt.length">
-    <img class="figure-img img-fluid rounded center-block" id="uploadFile" [src]="img.src" [width]="img.width"
+  <div class="col-md-6 col-xs-12 col-md-offset-3" *ngIf="img.alt.length">
+    <img class="img-fluid"
+         id="uploadFile"
+         [src]="img.src"
+         [width]="img.width"
          [alt]="img.alt">
-    <figcaption class="figure-caption text-center" [innerHTML]="classification"></figcaption>
-  </figure><!--*ngIf="img.alt.length"-->
+    <div class="" [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut, 'figure-caption': true}">{{classification}}</div>
+  </div>
+  <div>
+
+    <div class="row">
+      <button (click)="activateCamera()">Activate Camera</button>
+      <button id="snap">Snap Photo</button>
+    </div>
+    <div class="camera">
+      <video id="video">Video not available</video>
+      <button id="startButton">Take photo</button>
+    </div>
+
+    <canvas id="canvas"></canvas>
+    <div class="output">
+      <img alt="Photo to appear here" id="photo">
+    </div>
+  </div>
+
 </div>

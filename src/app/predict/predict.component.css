@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+div.figure-caption {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2em;
+  text-align: center;
+}
+
+@keyframes fadeInFadeOut {
+  0% {opacity: 0.08;}
+  20% {opacity: 0.2;}
+  40% {opacity: 0.4;}
+  60% {opacity: 0.6;}
+  80% {opacity: 0.8;}
+  100% {opacity: 1;}
+}
+
+.fadeInFadeOut {
+  -webkit-animation: fadeInFadeOut 1s infinite alternate;
+  -moz-animation:  fadeInFadeOut 1s infinite alternate;
+  -o-animation:  fadeInFadeOut 1s infinite alternate;
+  animation:  fadeInFadeOut 1s infinite alternate;
+}

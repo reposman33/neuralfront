@@ -1,6 +1,6 @@
 import { MLShowcasePage } from './app.po';
 
-describe('mlshowcase App', () => {
+describe('neuralFront App', () => {
   let page: MLShowcasePage;
 
   beforeEach(() => {

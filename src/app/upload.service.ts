@@ -10,8 +10,8 @@ export class UploadService {
   url: string;
   APIKEY = 'ABC';
   constructor(private httpClient: HttpClient) {
-    this.url = 'http://192.168.0.101:8085/predict';
-    // this.url = 'http://lindabergman.world:8085/predict';
+    // this.url = 'http://192.168.0.101:8085/predict';
+    this.url = 'http://lindabergman.world:8085/predict';
   }
 
   uploadFile(file: File, fileName: string) {
