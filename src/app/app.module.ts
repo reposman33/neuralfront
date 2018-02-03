@@ -9,13 +9,15 @@ import { AboutComponent } from './about/about.component';
 import { PredictComponent } from './predict/predict.component';
 import { HeaderComponent } from './header/header.component';
 import {AppRoutingModule} from './app-routing.module';
+import { PhotoSnapComponent } from './photo-snap/photo-snap.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     PredictComponent,
-    HeaderComponent
+    HeaderComponent,
+    PhotoSnapComponent
   ],
   imports: [
     BrowserModule,

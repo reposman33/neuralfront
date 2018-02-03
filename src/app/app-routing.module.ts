@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {PredictComponent} from './predict/predict.component';
 import {AboutComponent} from './about/about.component';
+import {PhotoSnapComponent} from './photo-snap/photo-snap.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/predict', pathMatch: 'full'},
   {path: 'predict', component: PredictComponent},
-  {path: 'about', component: AboutComponent}
+  {path: 'about', component: AboutComponent},
+  {path: 'photoSnap', component: PhotoSnapComponent}
 ];
 
 

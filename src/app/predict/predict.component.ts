@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component } from '@angular/core';
 import {Form} from '@angular/forms';
 import {UploadService} from '../upload.service';
 
@@ -11,30 +11,11 @@ import {UploadService} from '../upload.service';
 export class PredictComponent {
   fileToUpload: File;
   fileReader;
-  img = {
-    src: '',
-    width: 320,
-    alt: ''
-  };
-  imgsrc: string;
+  img = {src: '', width: 320, alt: ''};
   classification: string;
-  displayAbout = false;
   useClass = {fadeInFadeOut:false};
-  constraints = { video: {width:640, height:480}, audio: false};
 
   constructor(private uploadService: UploadService) {
-  }
-
-  activateCamera() {
-  // Get access to the camera!
-    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      // Not adding `{ audio: true }` since we only want video now
-      navigator.mediaDevices.getUserMedia(this.constraints).then(function(stream) {
-        const video = document.querySelector('video');
-        video.srcObject = stream;
-        video.onloadedmetadata = (e) => {video.play()};
-      });
-    }
   }
 
   onSubmit(form: Form) {

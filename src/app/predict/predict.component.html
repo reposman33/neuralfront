@@ -18,7 +18,6 @@
                aria-describedby="ïnputText">
       </div>
       <button class="btn btn-primary" type="submit">Upload</button>
-      <button type="button" class="btn btn-primary col-md-offset-8">Take photo</button>
     </form>
   </div>
 
@@ -30,20 +29,4 @@
          [alt]="img.alt">
     <div class="" [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut, 'figure-caption': true}">{{classification}}</div>
   </div>
-  <div>
-
-    <div class="row">
-      <button (click)="activateCamera()">Click to activate your Camera</button>
-      <button id="startButton">Take photo</button>
-    </div>
-    <div class="camera">
-      <video id="video">This video is not available</video>
-    </div>
-
-    <canvas id="canvas"></canvas>
-    <div class="output">
-      <img alt="Photo to appear here" id="photo">
-    </div>
-  </div>
-
 </div>
