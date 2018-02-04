@@ -14,7 +14,7 @@ export class UploadService {
     this.url = 'http://lindabergman.world:8085/predict';
   }
 
-  uploadFile(file: File, fileName: string) {
+  uploadFile(file, fileName: string) {
     const form = new FormData();
     form.append('file', file, fileName);
     form.append('apikey', this.APIKEY);
