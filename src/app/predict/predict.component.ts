@@ -24,25 +24,24 @@ export class PredictComponent {
     }
 
     this.classification = 'Classifying...';
-    this.useClass = {'fadeInFadeOut': true};
-
+    this.useClass.fadeInFadeOut = true;
     this.uploadService.uploadFile(this.fileToUpload, this.fileToUpload.name)
       .subscribe(response => {
         setTimeout(() => {
           this.classification = response['prediction'].join(',');
           this.useClass.fadeInFadeOut = false;
-        },1000)
-        },
+        },1000)},
         error => {
           console.log(error);
           this.classification = '';
         });
   }
 
-  fileSelected(uploadFiles, input) {
+  fileSelected(uploadFiles) {
     this.fileToUpload = uploadFiles[0];
     // toon geselecteerde image in pagina on change event
     this.fileReader = new FileReader();
+    // display selected photo in page
     this.fileReader.readAsDataURL(this.fileToUpload);
     this.fileReader.onload = (e) => {
       this.img.src = this.fileReader.result;
