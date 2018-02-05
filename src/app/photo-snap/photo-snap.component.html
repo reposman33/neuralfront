@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<div class="container col-md-6 col-xs-12 col-md-offset-3">
+  <div class="text-center">
+    <button class="btn btn-primary button--margin" id="startButton" (click)="takePhoto($event)">Take photo</button>
+    <div class="well">
+      <video id="video">Video stream not available.</video>
+    </div>
+    <span class="text-center">{{displayText}}</span>
+<div class="text-center"></div>
+
+    <img id="photo" alt="Photo to appear here">
+    <div class="" [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut, 'figure-caption': true}">{{classification}}</div>
+    <button class="btn btn-primary button--margin" id="uploadPhoto" (click)="uploadPhoto($event)" *ngIf="displayButtonUpload">Upload photo</button>
+  </div>
+
+  <canvas id="canvas"></canvas>
+</div>

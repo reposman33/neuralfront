@@ -20,4 +20,5 @@ export class UploadService {
     form.append('apikey', this.APIKEY);
     return this.httpClient.post<PredictResponse[]>(this.url, form);
   }
+
 }
