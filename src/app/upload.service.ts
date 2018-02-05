@@ -11,7 +11,7 @@ export class UploadService {
   APIKEY = 'ABC';
   constructor(private httpClient: HttpClient) {
     // this.url = 'http://192.168.0.101:8085/predict';
-    this.url = 'http://lindabergman.world:8085/predict';
+    this.url = 'http://www.lindabergman.world/service/predict';
   }
 
   uploadFile(file, fileName: string) {
