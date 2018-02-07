@@ -1,0 +1,10 @@
+{
+  "header-button-camera": {
+    "value": "Take a picture of fruit",
+    "title": "Click to make a picture of fruit using device camera"
+  },
+  "header-button-photo": {
+    "value": "Upload a picture of fruit",
+    "title": "Click to upload a picture of fruit"
+  }
+}

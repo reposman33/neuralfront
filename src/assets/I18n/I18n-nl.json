@@ -1,0 +1,10 @@
+{
+  "header-button-camera": {
+    "value": "Maak foto",
+    "title": "Klik button en maak een foto van fruit om te herkennen"
+  },
+  "header-button-photo": {
+    "value": "Upload bestand",
+    "title": "Klik de button om een foto van fruit te verzenden"
+  }
+}

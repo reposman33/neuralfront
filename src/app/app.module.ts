@@ -10,6 +10,8 @@ import { PredictComponent } from './predict/predict.component';
 import { HeaderComponent } from './header/header.component';
 import {AppRoutingModule} from './app-routing.module';
 import { PhotoSnapComponent } from './photo-snap/photo-snap.component';
+import { HomeComponent } from './home/home.component';
+import {I18nService} from './i18n/I18n.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { PhotoSnapComponent } from './photo-snap/photo-snap.component';
     AboutComponent,
     PredictComponent,
     HeaderComponent,
-    PhotoSnapComponent
+    PhotoSnapComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { PhotoSnapComponent } from './photo-snap/photo-snap.component';
   providers: [
     UploadService,
     FormBuilder,
-    RouterModule
+    RouterModule,
+    I18nService
   ],
   bootstrap: [
     AppComponent
