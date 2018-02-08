@@ -1,21 +1,14 @@
-.navbar-inverse {
-  background-color: #555!important;
+mdb-navbar {
+  margin-bottom: 5em;
 }
 
-#video-fruit-dropping {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  background: url("../../assets/image/falling-fruit.png") no-repeat;
+ul.navbar-nav.mr-auto > li {
+  margin-left: 100px;
+  margin-right: 100px;
+}
 
-  background-size: cover;
+a.logo-ML {
+  background-image: url('../../assets/image/icons/MLLogo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }

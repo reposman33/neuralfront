@@ -5,8 +5,8 @@ import {ButtonI18nModel} from '../Shared/button-i18n.model';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header-new.component.html',
-  styleUrls: ['./header-new.component.css']
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
   buttonLabels: ButtonI18nModel;

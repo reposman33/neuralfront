@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {FormBuilder, FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -12,6 +12,8 @@ import {AppRoutingModule} from './app-routing.module';
 import { PhotoSnapComponent } from './photo-snap/photo-snap.component';
 import { HomeComponent } from './home/home.component';
 import {I18nService} from './i18n/I18n.service';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {I18nService} from './i18n/I18n.service';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [
     UploadService,
@@ -36,6 +39,7 @@ import {I18nService} from './i18n/I18n.service';
   ],
   bootstrap: [
     AppComponent
-  ]
+  ],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
