@@ -65,10 +65,12 @@
 
   </div>
   <!--Grid row-->
-
 </section>
 
+<!--3 MODALS BELOW: CONTAINS PHOTOSNAP, UPOADPHOTO AND ABOUT -->
+
 <!-- PhotoSnap -->
+
 <div mdbModal #photoSnap="mdb-modal" class="modal fade" id="photoSnap" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -81,6 +83,7 @@
       </div>
       <div class="modal-body">
         <!--
+        ============ START copy from src/app/photo-snap/photo-snap.component.html ============
                 <div class="container col-md-6 col-xs-12 col-md-offset-3">
                   <div class="text-center">
                     <button class="btn btn-primary button&#45;&#45;margin" id="startButton" (click)="takePhoto($event)">Take photo</button>
@@ -97,6 +100,7 @@
 
                   <canvas id="canvas"></canvas>
                 </div>
+        ============ END copy from src/app/photo-snap/photo-snap.component.html ============
         -->
       </div>
     </div>
@@ -116,7 +120,42 @@
         </button>
       </div>
       <div class="modal-body">
-        <!-- content here -->
+
+        <!-- ============ START copy from src/app/upload/upload.component.html ============ -->
+
+        <div class="container">
+          <hr>
+          <div class="jumbotron">
+            <form class="form-group" (ngSubmit)="onSubmit()">
+              <div style="margin-bottom: 10px">
+                <div class="input-group-prepend">
+                  <span id="inputText" class="input-group-text">Kies afbeelding:</span>
+                </div>
+                <input type="file"
+                       id="upload"
+                       class="form-control mb-5"
+                       (change)="fileSelected($event.target.files)"
+                       (click)="classification = ''"
+                       accept="image/jpeg"
+                       #input
+                       aria-describedby="ïnputText">
+              </div>
+              <button class="btn btn-primary" type="submit">Upload</button>
+            </form>
+          </div>
+
+          <div class="col-md-6 col-xs-12 col-md-offset-3" *ngIf="img.alt.length">
+            <img class="img-fluid"
+                 id="uploadFile"
+                 [src]="img.src"
+                 [width]="img.width"
+                 [alt]="img.alt">
+            <div class="" [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut, 'figure-caption': true}">{{classification}}</div>
+          </div>
+        </div>
+
+        <!-- ============ END copy from src/app/upload/upload.component.html ============ -->
+
       </div>
     </div>
   </div>
@@ -135,7 +174,9 @@
         </button>
       </div>
       <div class="modal-body">
+
         <!-- content here -->
+
       </div>
     </div>
   </div>

@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
+/* ============ START copy from src/app/home/home.component.css ============ */
+
+div.figure-caption {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2em;
+  text-align: center;
+}
+
+/* ============ END copy from src/app/home/home.component.css ============ */
+
+/* ============ START copy from src/app/photo-snap/photo-snap.component.css ============ */
+
 @keyframes glow {
   0% {opacity: 0.08;}
   20% {opacity: 0.2;}
@@ -14,4 +26,6 @@
   -moz-animation:  glow 1s infinite alternate;
   -o-animation:  glow 1s infinite alternate;
   animation:  glow 1s infinite alternate;
+
+  /* ============ END copy from src/app/photo-snap/photo-snap.component.css ============ */
 }

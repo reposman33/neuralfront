@@ -3,12 +3,12 @@ import {Form} from '@angular/forms';
 import {UploadService} from '../upload.service';
 
 @Component({
-  selector: 'predict',
-  templateUrl: './predict.component.html',
-  styleUrls: ['./predict.component.css']
+  selector: 'app-upload',
+  templateUrl: './upload.component.html',
+  styleUrls: ['./upload.component.css']
 })
 
-export class PredictComponent {
+export class UploadComponent {
   fileToUpload: File;
   fileReader;
   img = {src: '', width: 320, alt: ''};
