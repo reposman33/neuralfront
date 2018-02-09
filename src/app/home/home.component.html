@@ -6,7 +6,8 @@
   <!--Section heading-->
   <h1 class="section-heading pt-4">Machine recognizes fruit?</h1>
   <!--Section description-->
-  <p class="section-description lead grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum.</p>
+  <p class="section-description lead grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+    amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum.</p>
 
   <!--Grid row-->
   <div class="row features-small">
@@ -18,8 +19,12 @@
       </div>
       <div class="col-10 col-md-9 col-lg-10 float-right">
         <h4 class="feature-title">Take a picture</h4>
-        <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda.</p>
-        <a class="btn btn-primary btn-sm ml-0 waves-light" mdbRippleRadius>Go for it</a>
+        <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam,
+          aperiam minima assumenda.</p>
+        <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#photoSnap"
+                (click)="photoSnap.show()" mdbRippleRadius>
+          Go for it
+        </button>
       </div>
     </div>
     <!--Grid column-->
@@ -31,8 +36,12 @@
       </div>
       <div class="col-10 col-md-9 col-lg-10 float-right">
         <h4 class="feature-title">Upload a picture</h4>
-        <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda.</p>
-        <a class="btn btn-pink btn-sm ml-0 waves-light" mdbRippleRadius>Go for it</a>
+        <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam,
+          aperiam minima assumenda.</p>
+        <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#uploadPhoto"
+                (click)="uploadPhoto.show()" mdbRippleRadius>
+          Go for it
+        </button>
       </div>
     </div>
     <!--Grid column-->
@@ -44,8 +53,12 @@
       </div>
       <div class="col-10 col-md-9 col-lg-10 float-right">
         <h4 class="feature-title">About this app</h4>
-        <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda.</p>
-        <a class="btn btn-secondary btn-sm ml-0 waves-light" mdbRippleRadius>Learn more</a>
+        <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam,
+          aperiam minima assumenda.</p>
+        <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#about"
+                (click)="about.show()" mdbRippleRadius>
+          Learn more
+        </button>
       </div>
     </div>
     <!--Grid column-->
@@ -54,4 +67,76 @@
   <!--Grid row-->
 
 </section>
-<!--Section: Features v.2-->
+
+<!-- PhotoSnap -->
+<div mdbModal #photoSnap="mdb-modal" class="modal fade" id="photoSnap" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class3="modal-title w-100" id="myModalLabel">Take a picture</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="photoSnap.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!--
+                <div class="container col-md-6 col-xs-12 col-md-offset-3">
+                  <div class="text-center">
+                    <button class="btn btn-primary button&#45;&#45;margin" id="startButton" (click)="takePhoto($event)">Take photo</button>
+                    <div class="well">
+                      <video id="video">Video stream not available.</video>
+                    </div>
+                    <span class="text-center">{{displayText}}</span>
+                    <div class="text-center"></div>
+
+                    <img id="photo" alt="Photo to appear here">
+                    <div class="" [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut, 'figure-caption': true}">{{classification}}</div>
+                    <button class="btn btn-primary button&#45;&#45;margin" id="uploadPhoto" (click)="uploadPhoto($event)" *ngIf="displayButtonUpload">Upload photo</button>
+                  </div>
+
+                  <canvas id="canvas"></canvas>
+                </div>
+        -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- UploadPhoto -->
+
+<div mdbModal #uploadPhoto="mdb-modal" class="modal fade" id="uploadPhoto" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class3="modal-title w-100" id="myModalLabel">Upload a picture</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="uploadPhoto.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- content here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- About -->
+
+<div mdbModal #about="mdb-modal" class="modal fade" id="about" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class3="modal-title w-100" id="about">About</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="about.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- content here -->
+      </div>
+    </div>
+  </div>
+</div>
