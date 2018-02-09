@@ -14,7 +14,6 @@ import { HomeComponent } from './home/home.component';
 import { I18nService } from './i18n/I18n.service';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +21,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     UploadComponent,
     HeaderComponent,
     PhotoSnapComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

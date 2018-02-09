@@ -38,8 +38,8 @@
         <h4 class="feature-title">Upload a picture</h4>
         <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam,
           aperiam minima assumenda.</p>
-        <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#uploadPhoto"
-                (click)="uploadPhoto.show()" mdbRippleRadius>
+          <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#photoSnap"
+                  (click)="uploadPhoto.show()" mdbRippleRadius> <!-- use navigateTo('upload') to navigate to UploadComponent -->
           Go for it
         </button>
       </div>
@@ -67,7 +67,8 @@
   <!--Grid row-->
 </section>
 
-<!--3 MODALS BELOW: CONTAINS PHOTOSNAP, UPOADPHOTO AND ABOUT -->
+<!-- modals below: content copied from photosnapComponent, uploadphotoComponent and aboutComponent -->
+<!-- this is a temporary solution - the components should open their modal on initialization -->
 
 <!-- PhotoSnap -->
 
@@ -82,26 +83,23 @@
         </button>
       </div>
       <div class="modal-body">
-        <!--
-        ============ START copy from src/app/photo-snap/photo-snap.component.html ============
+        <!--============ START copy from src/app/photo-snap/photo-snap.component.html ============-->
                 <div class="container col-md-6 col-xs-12 col-md-offset-3">
                   <div class="text-center">
-                    <button class="btn btn-primary button&#45;&#45;margin" id="startButton" (click)="takePhoto($event)">Take photo</button>
+                    <button class="btn btn-primary button--margin" id="startButton" (click)="takePhoto($event)">Take photo</button>
                     <div class="well">
                       <video id="video">Video stream not available.</video>
                     </div>
                     <span class="text-center">{{displayText}}</span>
                     <div class="text-center"></div>
-
                     <img id="photo" alt="Photo to appear here">
                     <div class="" [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut, 'figure-caption': true}">{{classification}}</div>
-                    <button class="btn btn-primary button&#45;&#45;margin" id="uploadPhoto" (click)="uploadPhoto($event)" *ngIf="displayButtonUpload">Upload photo</button>
+                    <button class="btn btn-primary button-margin" *ngIf="displayButtonUpload" (click)="uploadFile()">Upload photo</button>
                   </div>
 
                   <canvas id="canvas"></canvas>
                 </div>
-        ============ END copy from src/app/photo-snap/photo-snap.component.html ============
-        -->
+        <!--============ END copy from src/app/photo-snap/photo-snap.component.html ============-->
       </div>
     </div>
   </div>
@@ -120,9 +118,7 @@
         </button>
       </div>
       <div class="modal-body">
-
         <!-- ============ START copy from src/app/upload/upload.component.html ============ -->
-
         <div class="container">
           <hr>
           <div class="jumbotron">
@@ -153,9 +149,7 @@
             <div class="" [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut, 'figure-caption': true}">{{classification}}</div>
           </div>
         </div>
-
         <!-- ============ END copy from src/app/upload/upload.component.html ============ -->
-
       </div>
     </div>
   </div>

@@ -26,6 +26,9 @@ div.figure-caption {
   -moz-animation:  glow 1s infinite alternate;
   -o-animation:  glow 1s infinite alternate;
   animation:  glow 1s infinite alternate;
-
-  /* ============ END copy from src/app/photo-snap/photo-snap.component.css ============ */
 }
+
+canvas {
+  display: none;
+}
+/* ============ END copy from src/app/photo-snap/photo-snap.component.css ============ */

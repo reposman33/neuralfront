@@ -1,6 +1,7 @@
-import {Component } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Form} from '@angular/forms';
 import {UploadService} from '../upload.service';
+import {ModalDirective} from 'angular-bootstrap-md/modals/modal.directive';
 
 @Component({
   selector: 'app-upload',
@@ -8,14 +9,23 @@ import {UploadService} from '../upload.service';
   styleUrls: ['./upload.component.css']
 })
 
-export class UploadComponent {
+export class UploadComponent implements OnInit {
   fileToUpload: File;
   fileReader;
   img = {src: '', width: 320, alt: ''};
   classification: string;
   useClass = {fadeInFadeOut:false};
+  @ViewChild('uploadPhoto') uploadPhoto: ModalDirective;
 
   constructor(private uploadService: UploadService) {
+  }
+
+  ngAfterViewInit() {
+
+  }
+  ngOnInit(){
+    // this.uploadPhoto.show = true;
+    console.log('this.uploadPhoto = ', this.uploadPhoto);
   }
 
   onSubmit(form: Form) {
