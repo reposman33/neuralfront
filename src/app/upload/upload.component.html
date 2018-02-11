@@ -1,39 +1,38 @@
 <app-header></app-header>
 
-<div mdbModal #uploadPhoto="mdb-modal" class="modal fade" id="uploadPhoto" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" aria-hidden="true">
+<div mdbModal #uploadPhotoModal="mdb-modal" class="modal fade" id="uploadPhoto" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true" (onHidden)="navigateTo('home')">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
         <h4 class3="modal-title w-100" id="myModalLabel">Upload a picture</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="uploadPhoto.hide()">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
 
-        <div class="container col-md-6 col-xs-12 col-md-offset-3">
-          <hr>
+        <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close" (click)="uploadPhotoModal.hide()"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="container">
+
+          <hr />
+
           <div class="jumbotron">
-            <form class="form-group" (ngSubmit)="onSubmit()">
-              <div style="margin-bottom: 10px">
-                <div class="input-group-prepend">
-                  <span id="inputText" class="input-group-text">Kies afbeelding:</span>
-                </div>
-                <input type="file"
-                       id="upload"
-                       class="form-control mb-5"
-                       (change)="fileSelected($event.target.files)"
-                       (click)="classification = ''"
-                       accept="image/jpeg"
-                       #input
-                       aria-describedby="ïnputText">
+            <div style="margin-bottom: 10px">
+              <div class="input-group-prepend">
+                <span id="inputText" class="input-group-text">Kies afbeelding:</span>
               </div>
-              <button class="btn btn-primary" type="submit">Upload</button>
-            </form>
+              <input type="file"
+                     id="upload"
+                     class="form-control mb-5"
+                     (change)="fileSelected($event.target.files)"
+                     (click)="classification = '';this.img.src = ''"
+                     accept="image/jpeg"
+                     #input
+                     aria-describedby="ïnputText">
+            </div>
           </div>
 
-          <div class="col-md-6 col-xs-12 col-md-offset-3" *ngIf="img.alt.length">
+          <div class="col-md-6 col-xs-12 col-md-offset-3" *ngIf="img.src.length">
             <img class="img-fluid"
                  id="uploadFile"
                  [src]="img.src"
@@ -42,10 +41,10 @@
             <div class="" [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut, 'figure-caption': true}">
               {{classification}}
             </div>
+            <button class="btn btn-primary" type="button" *ngIf="img.src.length" (click)="uploadFile()">Upload</button>
           </div>
         </div>
-
       </div>
-    </div>
+    </div> <!-- class="modal-content" -->
   </div>
-</div>
+</div> <!-- mdbModal -->

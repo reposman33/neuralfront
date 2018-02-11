@@ -1,7 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {Form} from '@angular/forms';
-import {UploadService} from '../upload.service';
-import {ModalDirective} from 'angular-bootstrap-md/modals/modal.directive';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Form } from '@angular/forms';
+import { ModalDirective } from 'angular-bootstrap-md/modals/modal.directive';
+import { Router } from '@angular/router';
+
+import { UploadService } from '../Shared/upload.service';
 
 @Component({
   selector: 'app-upload',
@@ -9,26 +11,22 @@ import {ModalDirective} from 'angular-bootstrap-md/modals/modal.directive';
   styleUrls: ['./upload.component.css']
 })
 
-export class UploadComponent implements OnInit {
+export class UploadComponent implements AfterViewInit {
+  @ViewChild('uploadPhotoModal') uploadPhotoModal: ModalDirective;
+
   fileToUpload: File;
-  fileReader;
+  fileReader: FileReader;
   img = {src: '', width: 320, alt: ''};
   classification: string;
   useClass = {fadeInFadeOut:false};
-  @ViewChild('uploadPhoto') uploadPhoto: ModalDirective;
 
-  constructor(private uploadService: UploadService) {
-  }
+  constructor(private uploadService: UploadService, private router: Router) {}
 
   ngAfterViewInit() {
-
-  }
-  ngOnInit(){
-    // this.uploadPhoto.show = true;
-    console.log('this.uploadPhoto = ', this.uploadPhoto);
+    this.uploadPhotoModal.show();
   }
 
-  onSubmit(form: Form) {
+  uploadFile(form: Form) {
     if (!this.fileToUpload) {
       return;
     }
@@ -49,13 +47,16 @@ export class UploadComponent implements OnInit {
 
   fileSelected(uploadFiles) {
     this.fileToUpload = uploadFiles[0];
-    // toon geselecteerde image in pagina on change event
+    // display the selected photo below video
     this.fileReader = new FileReader();
-    // display selected photo in page
     this.fileReader.readAsDataURL(this.fileToUpload);
     this.fileReader.onload = (e) => {
       this.img.src = this.fileReader.result;
       this.img.alt = this.fileToUpload.name;
     };
+  }
+
+  navigateTo(route) {
+    this.router.navigate([route]);
   }
 }

@@ -1,5 +1,20 @@
 <app-header></app-header>
 
-<div class="container">
-  <h1> Thanks Linda, Marc and Thijs!</h1>
+<div mdbModal #aboutModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true" (onHidden)="navigateTo('home')">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class3="modal-title w-100">About</h4>
+        <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close" (click)="aboutModal.hide()"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="container">
+          <h1> Thanks Linda, Marc and Thijs!</h1>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>

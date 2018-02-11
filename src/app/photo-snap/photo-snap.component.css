@@ -1,4 +1,4 @@
-#video{
+#video,#photo {
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
@@ -7,6 +7,7 @@
 button.button--margin {
   margin: 20px 0;
 }
+
 canvas {
   display: none
 }

@@ -1,18 +1,35 @@
 <app-header></app-header>
 
-<div class="container col-md-6 col-xs-12 col-md-offset-3">
-  <div class="text-center">
-    <button class="btn btn-primary button--margin" id="startButton" (click)="takePhoto($event)">Take photo</button>
-    <div class="well">
-      <video id="video">Video stream not available.</video>
+<div mdbModal #photoSnapModal="mdb-modal" class="modal fade" id="photoSnap" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true" (onHidden)="navigateTo('home')">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class3="modal-title w-100" id="myModalLabel">Take a picture</h4>
+        <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close" (click)="photoSnapModal.hide()"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="container col-md-6 col-xs-12 col-md-offset-3">
+          <div class="text-center">
+            <button class="btn btn-primary button--margin" id="startButton" (click)="takePhoto($event)">Take photo</button>
+            <div class="well">
+              <video id="video">Video stream not available.</video>
+            </div>
+            <span class="text-center">{{displayText}}</span>
+            <div class="text-center"></div>
+
+            <img id="photo" alt="Photo to appear here">
+
+            <div class="container" *ngIf="displayButtonUpload">
+              <div [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut, 'figure-caption': true}">{{classification}}</div>
+              <button class="btn btn-primary button-margin" (click)="uploadPhoto()">Upload photo</button>
+            </div>
+
+          </div><canvas id="canvas"></canvas></div>
+
+      </div>
     </div>
-    <span class="text-center">{{displayText}}</span>
-<div class="text-center"></div>
-
-    <img id="photo" alt="Photo to appear here">
-    <div class="" [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut, 'figure-caption': true}">{{classification}}</div>
-    <button class="btn btn-primary button--margin" id="uploadPhoto" (click)="uploadPhoto($event)" *ngIf="displayButtonUpload">Upload photo</button>
   </div>
-
-  <canvas id="canvas"></canvas>
 </div>
+`

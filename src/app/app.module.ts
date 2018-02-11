@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
-import {FormBuilder, FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { FormBuilder, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { UploadService } from './upload.service';
+import { UploadService } from './Shared/upload.service';
 import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { UploadComponent } from './upload/upload.component';
