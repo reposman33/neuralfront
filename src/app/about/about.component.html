@@ -1,17 +1,56 @@
 <app-header></app-header>
 
-<div mdbModal #aboutModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" aria-hidden="true" (onHidden)="navigateTo('home')">
-  <div class="modal-dialog modal-lg" role="document">
+<div class="card offset-3 w-50">
+  <div class="card-header deep blue lighten-1 white-text">About this demo</div>
+  <div class="card-title">
+    <div class="ml-3">Who are we and what is this app?</div>
+  </div>
+
+  <div class="card-body">
+    <div class="btn btn-primary" (click)="creditsModal.show()">Credits</div>
+    <div class="btn btn-primary pull" (click)="HiWModal.show()">How it Works</div>
+    <div class="btn btn-primary pull-right" (click)="navigateTo('home')">Go back</div>
+  </div>
+</div>
+
+<!--ABOUT modal-->
+<div mdbModal #creditsModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-info" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class3="modal-title w-100">About</h4>
-        <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close" (click)="aboutModal.hide()"></button>
+        <h4 class="modal-title w-100">About</h4>
+        <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close"
+                (click)="creditsModal.hide()"></button>
+      </div>
+      <div class="modal-body">
+
+        <ul class="list-group">
+          <li class="list-group-item">Linda Bergman</li>
+          <li class="list-group-item">Marc Bakker</li>
+          <li class="list-group-item">Thijs Coenen</li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--HOW IT WORKS modal-->
+<div mdbModal #HiWModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100">About</h4>
+        <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close"
+                (click)="HiWModal.hide()"></button>
       </div>
       <div class="modal-body">
 
         <div class="container">
-          <h1> Thanks Linda, Marc and Thijs!</h1>
+          <h2>How did we use Machine Learning to create an app that recognizes fruit i na picture?</h2>
+          <p>...</p>
         </div>
 
       </div>

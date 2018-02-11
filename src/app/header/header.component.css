@@ -7,8 +7,11 @@ ul.navbar-nav.mr-auto > li {
   margin-right: 100px;
 }
 
-a.logo-ML {
-  background-image: url('../../assets/image/icons/MLLogo.png');
+.logo-ML {
+  background-image: url('../../assets/image/icons/machineLearning_iconDark.png');
+  /* logo from https://www.google.nl/search?q=machine+learning+icons&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjT4cqbqp7ZAhULyqQKHXkgATwQ_AUICigB&biw=1233&bih=849#imgrc=AhAVW_RXk7RxqM: */
   background-repeat: no-repeat;
   background-size: contain;
+  width: 4rem;
+  height: 4rem
 }
