@@ -2,17 +2,20 @@
 
 <div mdbModal #photoSnapModal="mdb-modal" class="modal fade" id="photoSnap" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true" (onHidden)="navigateTo('home')">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog modal-notify modal-info modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class3="modal-title w-100" id="myModalLabel">Take a picture</h4>
-        <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close" (click)="photoSnapModal.hide()"></button>
-      </div>
-      <div class="modal-body">
 
+      <!--Modal header-->
+      <div class="modal-header">
+        <h4 class="text-white" id="myModalLabel">Take a photo</h4>
+        <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close" (click)="photoSnapModal.hide()"></button>
+      </div> <!--Modal header-->
+
+      <!--Modal body-->
+      <div class="modal-body">
         <div class="container col-md-6 col-xs-12 col-md-offset-3">
           <div class="text-center">
-            <button class="btn btn-primary button--margin" id="startButton" (click)="takePhoto($event)">Take photo</button>
+            <button class="btn btn-primary button--margin" id="startButton" (click)="takePhoto($event)">Take!</button>
             <div class="well">
               <video id="video">Video stream not available.</video>
             </div>
@@ -22,13 +25,14 @@
             <img id="photo" alt="Photo to appear here">
 
             <div class="container" *ngIf="displayButtonUpload">
-              <div [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut, 'figure-caption': true}">{{classification}}</div>
+              <div [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut}">{{classification}}</div>
               <button class="btn btn-primary button-margin" (click)="uploadPhoto()">Upload photo</button>
             </div>
 
+            <!-- hidden -->
           </div><canvas id="canvas"></canvas></div>
+      </div> <!--Modal body-->
 
-      </div>
     </div>
   </div>
 </div>

@@ -107,6 +107,7 @@ export class PhotoSnapComponent implements OnInit, AfterViewInit {
             this.useClass.fadeInFadeOut = false;
           },
           error => {
+            this.classification = 'ERROR uploading file';
             console.log(error);
           });
   };
