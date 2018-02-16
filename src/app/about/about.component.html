@@ -1,15 +1,16 @@
 <app-header></app-header>
 
 <div class="card offset-3 w-50">
-  <div class="card-header deep blue lighten-1 white-text">About this demo</div>
-  <div class="card-title">
+  <h4 class="card-header blue darken-1 text-white text-center">About this demo
+    <button type="button" class="fa fa-close pull-right blue-text" data-dismiss="modal" aria-label="Close" (click)="navigateTo('home')"></button>
+  </h4>
+  <div class="card-title text-center mt-3">
     <div class="ml-3">Who are we and what is this app?</div>
   </div>
 
-  <div class="card-body">
+  <div class="card-body text-center">
     <div class="btn btn-primary" (click)="creditsModal.show()">Credits</div>
     <div class="btn btn-primary pull" (click)="HiWModal.show()">How it Works</div>
-    <div class="btn btn-primary pull-right" (click)="navigateTo('home')">Go back</div>
   </div>
 </div>
 
@@ -19,7 +20,7 @@
   <div class="modal-dialog modal-notify modal-info" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100">About</h4>
+        <h4 class="text-white">About us</h4>
         <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close"
                 (click)="creditsModal.hide()"></button>
       </div>
@@ -42,7 +43,7 @@
   <div class="modal-dialog modal-notify modal-info" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100">About</h4>
+        <h4 class="text-white">How it works</h4>
         <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close"
                 (click)="HiWModal.hide()"></button>
       </div>

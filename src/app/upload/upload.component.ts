@@ -16,7 +16,7 @@ export class UploadComponent implements AfterViewInit {
 
   fileToUpload: File;
   fileReader: FileReader;
-  img = {src: '', width: 320, alt: ''};
+  img = {src: '', width: 160, alt: ''};
   classification: string;
   useClass = {fadeInFadeOut:false};
 
@@ -41,7 +41,7 @@ export class UploadComponent implements AfterViewInit {
         },1000)},
         error => {
           console.log(error);
-          this.classification = '';
+          this.classification = 'ERROR uploading file';
         });
   }
 
