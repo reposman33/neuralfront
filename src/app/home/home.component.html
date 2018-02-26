@@ -6,107 +6,114 @@
 
     <section class="section feature-box">
 
-      <h1 class="section-heading my-4">Machine recognizes fruit?</h1>
+      <h1 class="section-heading my-4">
+        Fruit
+      </h1>
 
-      <p class="section-description lead grey-text my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Fugit, error
-        amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum.</p>
+      <p class="section-description lead grey-text my-4">
+        This application applies image recognition to fruit.  Upload an image of some fruit or hold a piece of fruit in front of the camera, and this application will identify the type of fruit.
+      </p>
 
       <div class="row features-small py-4">
 
-        <!-- PHOTOSNAP card -->
-        <div class="col-md-4 mb-r">
-          <div class="card">
-            <div class="col-1 col-md-2 float-left ml-2 my-2">
-              <i class="fa fa-camera-retro fa-3x"></i>
+        <div class="card-deck">
+          <!-- PHOTOSNAP card -->
+
+            <div class="card">
+              <div class="col-1 col-md-2 float-left ml-2 my-2">
+                <i class="fa fa-camera-retro fa-3x"></i>
+              </div>
+              <div class="col-10 col-md-9 col-lg-10 float-right">
+
+                <!--Snapshot Title-->
+                <div class="card-title">
+                  <h4 class="feature-title">
+                    Use the Camera
+                  </h4>
+                </div> <!--Snapshot Title-->
+
+                <!--Snapshot Body-->
+                <div class="card-body">
+                  <p class="grey-text">
+                    Photograph some fruit using the camera. Your browser will request access to the camera.
+                  </p>
+
+                  <div class="text-center">
+                    <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#photoSnap"
+                            (click)="navigateTo('photoSnap')" mdbRippleRadius>
+                      Go for it
+                    </button>
+                  </div>
+                </div> <!--Snapshot Body-->
+
+              </div>
             </div>
-            <div class="col-10 col-md-9 col-lg-10 float-right">
+           <!-- PHOTOSNAP card -->
 
-              <!--Snapshot Title-->
-              <div class="card-title">
-                <h4 class="feature-title">Take a picture</h4>
-              </div> <!--Snapshot Title-->
+          <!-- UPLOADPHOTO card -->
 
-              <!--Snapshot Body-->
-              <div class="card-body">
-                <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores
-                  nam,
-                  aperiam minima assumenda.</p>
+            <div class="card">
+              <div class="col-1 col-md-2 float-left ml-2 my-2">
+                <i class="fa fa-file-photo-o fa-3x"></i>
+              </div>
 
-                <div class="text-center">
-                  <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#photoSnap"
-                          (click)="navigateTo('photoSnap')" mdbRippleRadius>
-                    Go for it
-                  </button>
-                </div>
-              </div> <!--Snapshot Body-->
+              <div class="col-10 col-md-9 col-lg-10 float-right">
 
+                <!-- Uploadphoto title -->
+                <div class="card-title">
+                  <h4 class="feature-title">Upload an Image</h4>
+                </div> <!-- Uploadphoto title -->
+
+                <!-- Uploadphoto Body -->
+                <div class="card-body">
+                  <p class="grey-text">
+                    Upload an existing image from your file system. It currently only works with .jpg files.
+                  </p>
+
+                  <div class="text-center">
+                    <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#photoSnap"
+                            (click)="navigateTo('upload')" mdbRippleRadius>
+                      <!-- use navigateTo('upload') to navigate to UploadComponent -->
+                      Go for it
+                    </button>
+                  </div>
+                </div> <!-- Uploadphoto Body -->
+
+              </div>
             </div>
+           <!-- UPLOADPHOTO card -->
+
+
+          <!-- ABOUT card -->
+
+
+            <div class="card">
+              <div class="col-1 col-md-2 float-left ml-2 my-2">
+                <i class="fa fa-question-circle-o fa-3x"></i>
+              </div>
+
+              <div class="col-10 col-md-9 col-lg-10 float-right">
+
+                <!-- About title -->
+                <div class="card-title">
+                  <h4 class="feature-title">About this app</h4>
+                </div> <!-- About title -->
+
+                <div class="card-body">
+                  <p class="grey-text">
+                    Find out how this application works.  And find out more about us.
+                  </p>
+                  <div class="text-center">
+                    <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#about"
+                            (click)="navigateTo('about')" mdbRippleRadius>
+                      Learn more
+                    </button>
+                  </div>
+                </div> <!--Card Body-->
+
+              </div>
+            <!-- ABOUT card -->
           </div>
-        </div> <!-- PHOTOSNAP card -->
-
-        <!-- UPLOADPHOTO card -->
-        <div class="col-md-4 mb-r">
-          <div class="card">
-            <div class="col-1 col-md-2 float-left ml-2 my-2">
-              <i class="fa fa-file-photo-o fa-3x"></i>
-            </div>
-
-            <div class="col-10 col-md-9 col-lg-10 float-right">
-
-              <!-- Uploadphoto title -->
-              <div class="card-title">
-                <h4 class="feature-title">Upload a picture</h4>
-              </div> <!-- Uploadphoto title -->
-
-              <!-- Uploadphoto Body -->
-              <div class="card-body">
-                <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores
-                  nam, aperiam minima assumenda.</p>
-
-                <div class="text-center">
-                  <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#photoSnap"
-                          (click)="navigateTo('upload')" mdbRippleRadius>
-                    <!-- use navigateTo('upload') to navigate to UploadComponent -->
-                    Go for it
-                  </button>
-                </div>
-              </div> <!-- Uploadphoto Body -->
-
-            </div>
-          </div>
-        </div> <!-- UPLOADPHOTO card -->
-
-
-        <!-- ABOUT card -->
-        <div class="col-md-4 mb-r">
-
-          <div class="card">
-            <div class="col-1 col-md-2 float-left ml-2 my-2">
-              <i class="fa fa-question-circle-o fa-3x"></i>
-            </div>
-
-            <div class="col-10 col-md-9 col-lg-10 float-right">
-
-              <!-- About title -->
-              <div class="card-title">
-                <h4 class="feature-title">About this app</h4>
-              </div> <!-- About title -->
-
-              <div class="card-body">
-                <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores
-                  nam,
-                  aperiam minima assumenda.</p>
-                <div class="text-center">
-                  <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#about"
-                          (click)="navigateTo('about')" mdbRippleRadius>
-                    Learn more
-                  </button>
-                </div>
-              </div> <!--Card Body-->
-
-            </div>
-          </div> <!-- ABOUT card -->
 
         </div>
 

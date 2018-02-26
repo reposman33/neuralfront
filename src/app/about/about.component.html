@@ -5,7 +5,7 @@
     <button type="button" class="fa fa-close pull-right blue-text" data-dismiss="modal" aria-label="Close" (click)="navigateTo('home')"></button>
   </h4>
   <div class="card-title text-center mt-3">
-    <div class="ml-3">Who are we and what is this app?</div>
+    <div class="ml-3"> How it Works</div>
   </div>
 
   <div class="card-body text-center">
@@ -50,8 +50,12 @@
       <div class="modal-body">
 
         <div class="container">
-          <h2>How did we use Machine Learning to create an app that recognizes fruit i na picture?</h2>
-          <p>...</p>
+          <h4>Deep Learning</h4>
+          <p>This application uses a multilayer convolutional neural network. This neural network was built using Tensorflow and Keras.</p>
+          <h4>Transfer Learning</h4>
+          <p>We use the pretrained Inception v3 network.  The top layers of this network have been retrained for the particular purpose of recognizing fruit.  This is much faster than completely training a deep neural network from scratch.</p>
+          <h4>Training</h4>
+          <p>We trained this application on a collection of 30.000 images.  We collected this dataset using screen scraping on Google Images</p>
         </div>
 
       </div>
