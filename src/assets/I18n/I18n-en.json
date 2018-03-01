@@ -1,10 +1,30 @@
 {
-  "header-button-camera": {
-    "value": "Take a picture of fruit",
+  "button-camera": {
+    "value": "Snap photo",
     "title": "Click to make a picture of fruit using device camera"
   },
-  "header-button-photo": {
-    "value": "Upload a picture of fruit",
+  "button-photo": {
+    "value": "Upload",
     "title": "Click to upload a picture of fruit"
+  },
+  "camera-card": {
+    "value": "Photograph some fruit using the camera. Your browser will request access to the camera.",
+    "title": ""
+  },
+  "upload-card": {
+    "value": "Upload an existing image from your file system. It currently only works with .jpg files.",
+    "title": ""
+  },
+  "about-card": {
+    "value": "Find out how this application works. And find out more about us.",
+    "title": ""
+  },
+  "introduction": {
+    "value": "This application applies image recognition to fruit.  Upload an image of some fruit or hold a piece of fruit in front of the camera, and this application will identify the type of fruit.",
+    "title": ""
+  },
+  "how-it-works": {
+    "value": "<h4>Deep Learning</h4><p>This application uses a multilayer convolutional neural network. This neural network was built using Tensorflow and Keras.</p><h4>Transfer Learning</h4><p>We use the pretrained Inception v3 network.  The top layers of this network have been retrained for the particular purpose of recognizing fruit.  This is much faster than completely training a deep neural network from scratch.</p><h4>Training</h4><p>We trained this application on a collection of 30.000 images.  We collected this dataset using screen scraping on Google Images</p>",
+    "title": ""
   }
 }

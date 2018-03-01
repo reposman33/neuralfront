@@ -1,36 +1,59 @@
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Injectable } from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {I18nModel} from '../Shared/i18n.model';
+import {Subject} from 'rxjs/Subject';
+import {I18nModel} from '../../assets/I18n/I18n.model';
 
 @Injectable()
 export class I18nService {
-  selectedLanguage: string;
-  I18nLanguages: object;
-  I18nLanguageURI = {en: 'assets/I18n/I18n-en.json', nl: 'assets/I18n/I18n-nl.json'};
+  private languagePacks = <any>{};
+  private NOT_FOUND = ' -- ';
+  public languageSelector: Subject<any> = new Subject();
 
   constructor(private http: HttpClient) {
-    this.getLanguageFile('nl')
   }
 
-  getLanguageFile(language) {
-    this.http.get(this.I18nLanguageURI[language])
-      .subscribe(response => this.I18nLanguages = response);
+  loadLanguagePack(): Promise<I18nModel> {
+    const path = `../assets/I18n/I18n-${this.getSelectedLanguage()}.json`;
+    return this.http.get(path, {responseType: 'json'})
+      .toPromise()
+      .then((language: I18nModel) => this.languagePacks[this.getSelectedLanguage()] = language
+      )
+  }
+
+  private getSelectedLanguage() {
+    const setCookie = document.cookie.split("; ").find(el => el.indexOf("selectedLanguage") > -1);
+    if (setCookie) {
+      return setCookie.split("=")[1];
+    } else {
+      // use browser language
+      return navigator.language.split('-')[0];
+    }
+  }
+
+  private storeSelectedLanguage(selectedLanguage) {
+    document.cookie = "selectedLanguage=" + selectedLanguage + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
   }
 
   getKeyValue(key) {
-    return this.I18nLanguages[this.selectedLanguage][key].value;
+    return this.languagePacks[this.getSelectedLanguage()][key].value || this.NOT_FOUND;
   }
 
   getKeyTitle(key) {
-    return this.I18nLanguages[this.selectedLanguage][key].title;
+    return this.languagePacks[this.getSelectedLanguage()][key].title || this.NOT_FOUND;
   }
 
-  initializeLanguage(language) {
-    this.selectedLanguage = language;
-  }
-
-  getLanguage() {
-    return this.selectedLanguage;
+  changeDefaultLanguage(language) {
+    this.storeSelectedLanguage(language);
+    if (!this.languagePacks[this.getSelectedLanguage()]) {
+      // retrieve language pack through http...
+      this.loadLanguagePack()
+        .then( () =>
+          // ... and notify subscribers when data is retrieved
+          this.languageSelector.next()
+        )
+    } else {
+      // only notify subscribers
+      this.languageSelector.next();
+    }
   }
 }

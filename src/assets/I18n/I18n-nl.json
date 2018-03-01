@@ -1,10 +1,30 @@
 {
-  "header-button-camera": {
+  "button-camera": {
     "value": "Maak foto",
     "title": "Klik button en maak een foto van fruit om te herkennen"
   },
-  "header-button-photo": {
-    "value": "Upload bestand",
+  "button-photo": {
+    "value": "Verzend",
     "title": "Klik de button om een foto van fruit te verzenden"
+  },
+  "camera-card": {
+    "value": "Maak een foto van een stuk fruit met de webcam. De browser zal toestemming vragen.",
+    "title": ""
+  },
+  "upload-card": {
+    "value": "Een bestaande foto uploaden. Werkt momenteel alleen met .jpg bestanden.",
+    "title": ""
+  },
+  "about-card": {
+    "value": "Ontdek hoe deze applicatie werkt. En leer ons kennen.",
+    "title": ""
+  },
+  "introduction": {
+    "value": "In deze applicatie wordt beeldherkenning toegepast op fruit. Verstuur een afbeelding die fruit bevat of houd een stuk fruit voor de webcam, en de applicatie zal het stuk fruit herkennen.",
+    "title": ""
+  },
+  "how-it-works": {
+    "value": "<h4>Deep Learning</h4><p>Deze applicatie gebruikt een multilayer convolutional neural netwerk. Dit neural netwerk was built using Tensorflow and Keras.</p><h4>Transfer Learning</h4><p>We use the pretrained Inception v3 network.  The top layers of this network have been retrained for the particular purpose of recognizing fruit.  This is much faster than completely training a deep neural network from scratch.</p><h4>Training</h4><p>We trained this application on a collection of 30.000 images.  We collected this dataset using screen scraping on Google Images</p>",
+    "title": ""
   }
 }

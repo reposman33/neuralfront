@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { ModalDirective } from 'angular-bootstrap-md/modals/modal.directive';
-
-import { UploadService } from '../Shared/upload.service';
+import {Router} from '@angular/router';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {ModalDirective} from 'angular-bootstrap-md/modals/modal.directive';
+import { I18nService } from '../I18n/i18n.service';
+import {UploadService} from '../Shared/upload.service';
 
 @Component({
   selector: 'app-photo-snap',
@@ -23,8 +23,12 @@ export class PhotoSnapComponent implements OnInit, AfterViewInit {
   classification: string;
   useClass = {fadeInFadeOut: false};
   feedbackText = {videoNotAvailable: 'Video is not available'};
+  button_camera_text = ''; button_photo_text = '';
 
-  constructor(private uploadService: UploadService, private router: Router) {}
+  constructor(private uploadService: UploadService,
+              private router: Router,
+              private i18nService: I18nService) {
+  }
 
   ngOnInit() {
     this.video = document.getElementById('video');
@@ -33,6 +37,8 @@ export class PhotoSnapComponent implements OnInit, AfterViewInit {
     this.startButton = document.getElementById('startButton');
     this.feedbackText = {videoNotAvailable: 'Video is not available'};
     this.streaming = false;
+
+    this.button_camera_text = this.i18nService.getKeyValue('button-camera');
 
     this.displayButtonUpload = false;
     this.displayText = '';
@@ -101,15 +107,15 @@ export class PhotoSnapComponent implements OnInit, AfterViewInit {
     this.useClass.fadeInFadeOut = true;
     this.classification = 'Classifying...';
     // send photo to server for recognition
-      this.uploadService.uploadFile(this.imgSrc, 'photo.jpg')
-        .subscribe(response => {
-            this.classification = response['prediction'].join(',');
-            this.useClass.fadeInFadeOut = false;
-          },
-          error => {
-            this.classification = 'ERROR uploading file';
-            console.log(error);
-          });
+    this.uploadService.uploadFile(this.imgSrc, 'photo.jpg')
+      .subscribe(response => {
+          this.classification = response['prediction'].join(',');
+          this.useClass.fadeInFadeOut = false;
+        },
+        error => {
+          this.classification = 'ERROR uploading file';
+          console.log(error);
+        });
   };
 
   navigateTo(route) {
