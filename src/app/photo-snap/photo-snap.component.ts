@@ -11,10 +11,14 @@ import {UploadService} from '../Shared/upload.service';
 })
 export class PhotoSnapComponent implements OnInit, AfterViewInit {
   @ViewChild('photoSnapModal') photoSnapModal: ModalDirective;
+  // @ViewChild('video') video: HTMLElement;
+  // @ViewChild('photo') photo: HTMLElement;
+  // @ViewChild('canvasElement') canvasElement: CanvasRenderingContext2D;
+
   constraints = {video: {width: 320, height: 240}, audio: false};
-  video; // HTMLElement;
+  video; HTMLElement;
   photo: HTMLElement;
-  canvas; // HTMLCanvasElement;
+  canvas; HTMLCanvasElement;
   startButton: HTMLElement;
   displayText: string;
   imgSrc: HTMLElement;
@@ -43,7 +47,8 @@ export class PhotoSnapComponent implements OnInit, AfterViewInit {
     this.displayButtonUpload = false;
     this.displayText = '';
     this.useClass.fadeInFadeOut = false;
-    this.photo.setAttribute('style', 'visibility: hidden');
+    this.photo.setAttribute('style', 'display: none');
+    this.video.setAttribute('style', 'display: block');
 
     this.video.addEventListener('canplay', (ev) => {
       if (!this.streaming) {
@@ -78,7 +83,8 @@ export class PhotoSnapComponent implements OnInit, AfterViewInit {
     this.displayButtonUpload = false;
     this.displayText = '';
     this.useClass = {fadeInFadeOut: false};
-    this.photo.setAttribute('style', 'visibility: hidden');
+
+    this.video.setAttribute('style', 'display: none');
 
     this.takePicture();
   };
@@ -96,7 +102,7 @@ export class PhotoSnapComponent implements OnInit, AfterViewInit {
         this.displayButtonUpload = true;
       }, 'image/jpeg');
 
-      this.photo.setAttribute('style', 'visibility: visible');
+      this.photo.setAttribute('style', 'display: block');
       this.photo.setAttribute('src', imgSrc);
       this.photo.setAttribute('name', 'uploadFile.jpeg');
     } else {

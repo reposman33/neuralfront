@@ -15,14 +15,17 @@
       <div class="modal-body">
         <div class="container col-md-6 col-xs-12 col-md-offset-3">
           <div class="text-center">
-            <button class="btn btn-primary button--margin" id="startButton" (click)="takePhoto($event)">{{button_camera_text}}</button>
-            <div class="well">
-              <video id="video">Video stream not available.</video>
-            </div>
-            <span class="text-center">{{displayText}}</span>
-            <div class="text-center"></div>
 
-            <img id="photo" alt="Photo to appear here">
+            <button class="btn btn-primary button--margin" id="startButton" (click)="takePhoto($event)">{{button_camera_text}}</button>
+
+            <div class="well">
+              <video id="video" #video>Video stream not available.</video>
+              <img id="photo" alt="Photo to appear here" #photo>
+            </div>
+
+            <span class="text-center">{{displayText}}</span>
+
+            <div class="text-center"></div>
 
             <div class="container" *ngIf="displayButtonUpload">
               <div [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut}">{{classification}}</div>
@@ -30,7 +33,7 @@
             </div>
 
             <!-- hidden -->
-          </div><canvas id="canvas"></canvas></div>
+          </div><canvas id="canvas" #canvasElement></canvas></div>
       </div> <!--Modal body-->
 
     </div>
