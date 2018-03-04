@@ -4,126 +4,100 @@
 
   <div class="row">
 
-    <section class="section feature-box">
+    <h1 class="section-heading my-4">Fruit</h1>
 
-      <h1 class="section-heading my-4">
-        Fruit
-      </h1>
-
-      <p class="section-description lead grey-text my-4">
-        {{introduction_text}}
-      </p>
-
-      <div class="row features-small py-4">
-
-        <div class="card-deck">
-
-          <!-- PHOTOSNAP -->
-            <div class="card">
-              <div class="col-1 col-md-2 float-left ml-2 my-2">
-                <i class="fa fa-camera-retro fa-3x"></i>
-              </div>
-              <div class="col-10 col-md-9 col-lg-10 float-right">
-
-                <!-- Title-->
-                <div class="card-title">
-                  <h4 class="feature-title">
-                    Use the Camera
-                  </h4>
-                </div>
-                <!-- Title-->
-
-                <!-- Body -->
-                <div class="card-body h-75">
-                  <p class="grey-text">
-                    {{camera_card_text}}
-                  </p>
-
-                  <div class="text-center">
-                    <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#photoSnap"
-                            (click)="navigateTo('photoSnap')" mdbRippleRadius>
-                      Go for it
-                    </button>
-                  </div>
-                </div>
-                <!-- Body -->
-
-              </div>
-            </div>
-           <!-- PHOTOSNAP -->
-
-          <!-- UPLOADPHOTO -->
-            <div class="card">
-              <div class="col-1 col-md-2 float-left ml-2 my-2">
-                <i class="fa fa-file-photo-o fa-3x"></i>
-              </div>
-
-              <div class="col-10 col-md-9 col-lg-10 float-right">
-
-                <!-- Title -->
-                <div class="card-title">
-                  <h4 class="feature-title">Upload an Image</h4>
-                </div>
-                <!-- Title -->
-
-                <!-- Body -->
-                <div class="card-body h-75">
-                  <p class="grey-text">
-                    {{upload_card_text}}
-                  </p>
-
-                  <div class="text-center">
-                    <button type="button" class="btn btn-primary waves-light align-self-end" data-toggle="modal" data-target="#photoSnap"
-                            (click)="navigateTo('upload')" mdbRippleRadius>
-                      <!-- use navigateTo('upload') to navigate to UploadComponent -->
-                      Go for it
-                    </button>
-                  </div>
-                </div>
-                <!-- Body -->
-
-              </div>
-            </div>
-           <!-- UPLOADPHOTO -->
-
-          <!-- ABOUT -->
-            <div class="card">
-              <div class="col-1 col-md-2 float-left ml-2 my-2">
-                <i class="fa fa-question-circle-o fa-3x"></i>
-              </div>
-
-              <div class="col-10 col-md-9 col-lg-10 float-right">
-
-                <!-- Title -->
-                <div class="card-title">
-                  <h4 class="feature-title">About this app</h4>
-                </div>
-                <!-- Title -->
-
-                <!-- Body -->
-                <div class="card-body h-75">
-                  <p class="grey-text">
-                    {{about_card_text}}
-                  </p>
-                  <div class="text-center align-self-end">
-                    <button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#about"
-                            (click)="navigateTo('about')" mdbRippleRadius>
-                      Learn more
-                    </button>
-                  </div>
-                </div>
-                <!-- Body -->
-
-              </div>
-            <!-- ABOUT -->
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
+    <p class="section-description lead grey-text my-4">
+      {{introduction_text}}
+    </p>
 
   </div>
 
+</div>
+
+<div class="container">
+
+  <div class="row features-smal">
+
+    <div class="col-md-4">
+
+      <!-- PHOTOSNAP -->
+      <div class="card px-3">
+        <div class="col-1 col-md-2 float-left ml-2 my-2">
+          <i class="fa fa-camera-retro fa-3x"></i>
+        </div>
+
+        <!-- Body -->
+        <div class="card-block">
+
+          <!-- Title-->
+          <h4 class="card-title">Use the Camera</h4>
+
+          <p class="card-text">{{camera_card_text}}</p>
+
+          <div class="text-center mt-5 mb-3">
+            <a class="btn btn-primary waves-light" data-toggle="modal" data-target="#photoSnap"
+               (click)="navigateTo('photoSnap')" mdbRippleRadius>
+              Go for it
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PHOTOSNAP -->
+
+    <!-- UPLOADPHOTO -->
+    <div class="col-md-4">
+      <div class="card px-3">
+        <div class="col-1 col-md-2 float-left ml-2 my-2">
+          <i class="fa fa-file-photo-o fa-3x"></i>
+        </div>
+
+        <!-- Body -->
+        <div class="card-block">
+
+          <!-- Title -->
+          <h4 class="card-title">Upload an Image</h4>
+
+          <p class="card-text">{{upload_card_text}}</p>
+
+          <div class="text-center mt-5 mb-3">
+            <a class="btn btn-primary waves-light" data-toggle="modal"
+               data-target="#photoSnap"
+               (click)="navigateTo('upload')" mdbRippleRadius>
+              <!-- use navigateTo('upload') to navigate to UploadComponent -->
+              Go for it
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- UPLOADPHOTO -->
+
+    <!-- ABOUT -->
+    <div class="col-md-4">
+      <div class="card px-3">
+        <div class="col-1 col-md-2 float-left ml-2 my-2">
+          <i class="fa fa-question-circle-o fa-3x"></i>
+        </div>
+
+        <!-- Body -->
+        <div class="card-block">
+
+          <!-- Title -->
+          <h4 class="card-title">About this app</h4>
+
+          <p class="card-text">{{about_card_text}}</p>
+
+          <div class="text-center mt-5 mb-3">
+            <a class="btn btn-primary waves-light" data-toggle="modal"
+               data-target="#about"
+               (click)="navigateTo('about')" mdbRippleRadius>
+              Learn more
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ABOUT -->
+  </div>
 </div>
