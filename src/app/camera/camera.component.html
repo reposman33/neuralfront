@@ -1,0 +1,24 @@
+<app-header></app-header>
+
+<div mdbModal #photoSnapModal="mdb-modal" class="modal fade" id="photoSnap" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true" (onHidden)="navigateTo('home')">
+  <div class="modal-dialog modal-notify modal-info modal-lg" role="document">
+    <div class="modal-content">
+
+      <!--Modal header-->
+      <div class="modal-header blue darken-1">
+        <h4 class="text-white" id="myModalLabel">{{i18nService.getKey('modal_camera_title')}}</h4>
+        <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close"
+                (click)="photoSnapModal.hide()"></button>
+      </div>
+      <!--Modal header-->
+
+      <!--Modal body-->
+      <div class="modal-body">
+        <app-photo-snap></app-photo-snap>
+      </div>
+      <!--Modal body-->
+
+    </div>
+  </div>
+</div>

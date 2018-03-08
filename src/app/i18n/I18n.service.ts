@@ -9,6 +9,9 @@ export class I18nService {
   private NOT_FOUND = ' -- ';
   public languageSelector: Subject<any> = new Subject();
 
+  private _languagePacks = {};
+  private LANGUAGE_KEY_NOT_FOUND = ' -- ';
+
   constructor(private http: HttpClient) {
   }
 
@@ -47,7 +50,7 @@ export class I18nService {
     if (!this.languagePacks[this.getSelectedLanguage()]) {
       // retrieve language pack through http...
       this.loadLanguagePack()
-        .then( () =>
+        .then(() =>
           // ... and notify subscribers when data is retrieved
           this.languageSelector.next()
         )
@@ -55,5 +58,15 @@ export class I18nService {
       // only notify subscribers
       this.languageSelector.next();
     }
+  }
+
+  // NEW API FOR I18n
+
+  initialize(languagePack){
+    this._languagePacks = {...this._languagePacks, ...languagePack};
+  }
+
+  getKey(key, language = 'en') {
+    return (this._languagePacks[key][language] || this.LANGUAGE_KEY_NOT_FOUND);
   }
 }

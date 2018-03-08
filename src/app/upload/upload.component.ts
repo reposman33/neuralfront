@@ -1,18 +1,18 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { Form } from '@angular/forms';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md/modals/modal.directive';
 import { Router } from '@angular/router';
 
 import { UploadService } from '../Shared/upload.service';
 import {I18nService} from '../I18n/i18n.service';
+import { UploadLanguagepack } from './upload.languagepack';
 
 @Component({
-  selector: 'app-upload',
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.css']
 })
 
-export class UploadComponent implements AfterViewInit, OnInit {
+export class UploadComponent implements AfterViewInit {
   @ViewChild('uploadPhotoModal') uploadPhotoModal: ModalDirective;
 
   fileToUpload: File;
@@ -20,20 +20,16 @@ export class UploadComponent implements AfterViewInit, OnInit {
   img = {src: '', width: 160, alt: ''};
   classification: string;
   useClass = {fadeInFadeOut:false};
-  button_photo_text = '';
 
   constructor(private uploadService: UploadService,
               private router: Router,
-              private i18nService: I18nService) {}
+              private i18nService: I18nService) {
+    this.i18nService.initialize(UploadLanguagepack);
+  }
 
   ngAfterViewInit() {
     this.uploadPhotoModal.show();
   }
-
-  ngOnInit (){
-    this.button_photo_text = this.i18nService.getKeyValue('button-photo');
-  }
-
 
   uploadFile(form: Form) {
     if (!this.fileToUpload) {

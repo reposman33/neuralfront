@@ -13,8 +13,9 @@ import { PhotoSnapComponent } from './photo-snap/photo-snap.component';
 import { HomeComponent } from './home/home.component';
 import { I18nService } from './I18n/i18n.service';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { CameraComponent } from './camera/camera.component';
 
-const I18nInitializer = (i18nService: I18nService) => {
+export const I18nInitializer = (i18nService: I18nService) => {
   return  () => {
     return i18nService.loadLanguagePack();
   }
@@ -28,6 +29,7 @@ const I18nInitializer = (i18nService: I18nService) => {
     HeaderComponent,
     PhotoSnapComponent,
     HomeComponent,
+    CameraComponent,
   ],
   imports: [
     BrowserModule,

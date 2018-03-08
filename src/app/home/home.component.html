@@ -4,11 +4,9 @@
 
   <div class="row">
 
-    <h1 class="section-heading my-4">Fruit</h1>
+    <h1 class="section-heading my-4">{{i18nService.getKey('title')}}</h1>
 
-    <p class="section-description lead grey-text my-4">
-      {{introduction_text}}
-    </p>
+    <p class="section-description lead grey-text my-4" [innerHTML]="i18nService.getKey('intro')"></p>
 
   </div>
 
@@ -30,14 +28,14 @@
         <div class="card-block">
 
           <!-- Title-->
-          <h4 class="card-title">Use the Camera</h4>
+          <h4 class="card-title">{{i18nService.getKey('card_camera_title')}}</h4>
 
-          <p class="card-text">{{camera_card_text}}</p>
+          <p class="card-text">{{i18nService.getKey('card_camera_body')}}</p>
 
           <div class="text-center mt-5 mb-3">
             <a class="btn btn-primary waves-light" data-toggle="modal" data-target="#photoSnap"
-               (click)="navigateTo('photoSnap')" mdbRippleRadius>
-              Go for it
+               (click)="navigateTo('camera')" mdbRippleRadius>
+              {{i18nService.getKey('card_camera_button_text')}}
             </a>
           </div>
         </div>
@@ -56,16 +54,15 @@
         <div class="card-block">
 
           <!-- Title -->
-          <h4 class="card-title">Upload an Image</h4>
+          <h4 class="card-title">{{i18nService.getKey('card_upload_title')}}</h4>
 
-          <p class="card-text">{{upload_card_text}}</p>
+          <p class="card-text">{{i18nService.getKey('card_upload_body')}}</p>
 
           <div class="text-center mt-5 mb-3">
             <a class="btn btn-primary waves-light" data-toggle="modal"
                data-target="#photoSnap"
                (click)="navigateTo('upload')" mdbRippleRadius>
-              <!-- use navigateTo('upload') to navigate to UploadComponent -->
-              Go for it
+              {{i18nService.getKey('card_upload_button_text')}}
             </a>
           </div>
         </div>
@@ -84,20 +81,21 @@
         <div class="card-block">
 
           <!-- Title -->
-          <h4 class="card-title">About this app</h4>
+          <h4 class="card-title">{{i18nService.getKey('card_about_title')}}</h4>
 
-          <p class="card-text">{{about_card_text}}</p>
+          <p class="card-text">{{i18nService.getKey('card_about_body')}}</p>
 
           <div class="text-center mt-5 mb-3">
             <a class="btn btn-primary waves-light" data-toggle="modal"
                data-target="#about"
                (click)="navigateTo('about')" mdbRippleRadius>
-              Learn more
+              {{i18nService.getKey('card_about_button_text')}}
             </a>
           </div>
         </div>
       </div>
     </div>
     <!-- ABOUT -->
+
   </div>
 </div>

@@ -1,16 +1,16 @@
 <app-header></app-header>
 
 <div class="card offset-3 w-50">
-  <h4 class="card-header blue darken-1 text-white text-center">About this demo
+  <h4 class="card-header blue darken-1 text-white text-center">{{i18nService.getKey('popup_title')}}
     <button type="button" class="fa fa-close pull-right blue-text" data-dismiss="modal" aria-label="Close" (click)="navigateTo('home')"></button>
   </h4>
   <div class="card-title text-center mt-3">
-    <div class="ml-3"> How it Works</div>
+    <div class="ml-3">{{i18nService.getKey('popup_body')}}</div>
   </div>
 
   <div class="card-body text-center">
-    <div class="btn btn-primary" (click)="creditsModal.show()">Credits</div>
-    <div class="btn btn-primary pull" (click)="HiWModal.show()">How it Works</div>
+    <div class="btn btn-primary" (click)="creditsModal.show()">{{i18nService.getKey('button_credits_text')}}</div>
+    <div class="btn btn-primary pull" (click)="HiWModal.show()">{{i18nService.getKey('button_howitworks_text')}}</div>
   </div>
 </div>
 
@@ -20,17 +20,13 @@
   <div class="modal-dialog modal-notify modal-info" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="text-white">About us</h4>
+        <h4 class="text-white">{{i18nService.getKey('modal_credits_title')}}</h4>
         <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close"
                 (click)="creditsModal.hide()"></button>
       </div>
       <div class="modal-body">
 
-        <ul class="list-group">
-          <li class="list-group-item">Linda Bergman</li>
-          <li class="list-group-item">Marc Bakker</li>
-          <li class="list-group-item">Thijs Coenen</li>
-        </ul>
+        <ul class="list-group" [innerHtml]="i18nService.getKey('modal_credits_body')"></ul>
 
       </div>
     </div>
@@ -39,24 +35,17 @@
 
 <!--HOW IT WORKS modal-->
 <div mdbModal #HiWModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     aria-hidden="true">
+      aria-hidden="true">
   <div class="modal-dialog modal-notify modal-info" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="text-white">How it works</h4>
+        <h4 class="text-white">{{i18nService.getKey('modal_howitworks_title')}}</h4>
         <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close"
                 (click)="HiWModal.hide()"></button>
       </div>
       <div class="modal-body">
 
-        <div class="container">
-          <h4>Deep Learning</h4>
-          <p>This application uses a multilayer convolutional neural network. This neural network was built using Tensorflow and Keras.</p>
-          <h4>Transfer Learning</h4>
-          <p>We use the pretrained Inception v3 network.  The top layers of this network have been retrained for the particular purpose of recognizing fruit.  This is much faster than completely training a deep neural network from scratch.</p>
-          <h4>Training</h4>
-          <p>We trained this application on a collection of 30.000 images.  We collected this dataset using screen scraping on Google Images</p>
-        </div>
+        <div class="container" [innerHtml]="i18nService.getKey('modal_howitworks_body')"></div>
 
       </div>
     </div>

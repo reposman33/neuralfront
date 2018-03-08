@@ -1,41 +1,22 @@
-<app-header></app-header>
+<div class="container col-md-6 col-xs-12 col-md-offset-3">
+  <div class="text-center">
 
-<div mdbModal #photoSnapModal="mdb-modal" class="modal fade" id="photoSnap" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" aria-hidden="true" (onHidden)="navigateTo('home')">
-  <div class="modal-dialog modal-notify modal-info modal-lg" role="document">
-    <div class="modal-content">
+    <button class="btn btn-primary button--margin" id="startButton" (click)="takePhoto($event)">{{i18nService.getKey('modal_camera_take_button_text')}}
+    </button>
 
-      <!--Modal header-->
-      <div class="modal-header blue darken-1">
-        <h4 class="text-white" id="myModalLabel">Take a photo</h4>
-        <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close" (click)="photoSnapModal.hide()"></button>
-      </div> <!--Modal header-->
+    <div class="well">
+      <video id="video" #video>{{i18nService.getKey('modal_camera_video_unavailable_text')}}</video>
+      <img id="photo" [alt]="i18nService.getKey('modal_camera_img_alt_text')" #photo>
+    </div>
 
-      <!--Modal body-->
-      <div class="modal-body">
-        <div class="container col-md-6 col-xs-12 col-md-offset-3">
-          <div class="text-center">
+    <span class="text-center">{{displayText}}</span>
 
-            <button class="btn btn-primary button--margin" id="startButton" (click)="takePhoto($event)">{{button_camera_text}}</button>
+    <div class="text-center"></div>
 
-            <div class="well">
-              <video id="video" #video>Video stream not available.</video>
-              <img id="photo" alt="Photo to appear here" #photo>
-            </div>
-
-            <span class="text-center">{{displayText}}</span>
-
-            <div class="text-center"></div>
-
-            <div class="container" *ngIf="displayButtonUpload">
-              <div [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut}">{{classification}}</div>
-              <button class="btn btn-primary button-margin" (click)="uploadPhoto()">Upload photo</button>
-            </div>
-
-            <!-- hidden -->
-          </div><canvas id="canvas" #canvasElement></canvas></div>
-      </div> <!--Modal body-->
-
+    <div class="container" *ngIf="displayButtonUpload">
+      <div [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut}">{{classification}}</div>
+      <button class="btn btn-primary button-margin" (click)="uploadPhoto()">{{i18nService.getKey('modal_camera_button_upload_text')}}</button>
     </div>
   </div>
+  <canvas id="canvas" #canvasElement></canvas>
 </div>
