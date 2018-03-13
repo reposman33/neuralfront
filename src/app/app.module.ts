@@ -15,12 +15,6 @@ import { I18nService } from './I18n/i18n.service';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CameraComponent } from './camera/camera.component';
 
-export const I18nInitializer = (i18nService: I18nService) => {
-  return  () => {
-    return i18nService.loadLanguagePack();
-  }
-};
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,12 +37,6 @@ export const I18nInitializer = (i18nService: I18nService) => {
     FormBuilder,
     RouterModule,
     I18nService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: I18nInitializer,
-      multi: true,
-      deps: [I18nService]
-    }
   ],
   bootstrap: [
     AppComponent

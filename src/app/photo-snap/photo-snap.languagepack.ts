@@ -4,7 +4,7 @@ export const PhotoSnapLanguagepack = {
     nl: "Klik!"
   },
   modal_camera_button_upload_text: {
-    en: "Upload photo",
+    en: "Identify Fruit",
     nl: "Verzend foto"
   },
   modal_camera_video_unavailable_text: {

@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {I18nService} from '../I18n/i18n.service';
-import {UploadService} from '../Shared/upload.service';
-import {PhotoSnapLanguagepack} from './photo-snap.languagepack';
+import { I18nService } from '../I18n/i18n.service';
+import { Component, OnInit } from '@angular/core';
+import { UploadService } from '../Shared/upload.service';
+import { PhotoSnapLanguagepack } from './photo-snap.languagepack';
 
 @Component({
   selector: 'app-photo-snap',
@@ -15,19 +15,19 @@ export class PhotoSnapComponent implements OnInit {
 
   constraints = {video: {width: 320, height: 240}, audio: false};
   video;
-  HTMLElement;
   photo: HTMLElement;
   canvas;
-  HTMLCanvasElement;
   startButton: HTMLElement;
   imgSrc: HTMLElement;
   displayButtonUpload: boolean;
   streaming: boolean;
   classification: string;
   useClass = {fadeInFadeOut: false};
+  i18nContent = {};
 
   constructor(private uploadService: UploadService,
               private i18nService: I18nService) {
+    this.i18nService.languageSelector.subscribe(language => this.initializeLanguage(language));
     this.i18nService.initialize(PhotoSnapLanguagepack)
   }
 
@@ -68,6 +68,14 @@ export class PhotoSnapComponent implements OnInit {
           console.log('ERROR: ', error);
         })
     }
+    this.initializeLanguage();
+  }
+
+  initializeLanguage(language?) {
+    this.i18nContent['modal_camera_take_button_text'] = this.i18nService.getKey('modal_camera_take_button_text', language);
+    this.i18nContent['modal_camera_video_unavailable_text'] = this.i18nService.getKey('modal_camera_video_unavailable_text', language);
+    this.i18nContent['modal_camera_img_alt_text'] = this.i18nService.getKey('modal_camera_img_alt_text', language);
+    this.i18nContent['modal_camera_button_upload_text'] = this.i18nService.getKey('modal_camera_button_upload_text', language);
   }
 
   // user takes photo

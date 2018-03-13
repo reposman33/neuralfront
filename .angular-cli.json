@@ -24,10 +24,7 @@
         "../node_modules/angular-bootstrap-md/scss/mdb-free.scss",
         "styles.scss"
       ],
-      "scripts": [
-        "../node_modules/chart.js/dist/Chart.js",
-        "../node_modules/hammerjs/hammer.min.js"
-      ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

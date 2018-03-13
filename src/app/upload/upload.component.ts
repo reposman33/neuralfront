@@ -1,10 +1,10 @@
 import { Form } from '@angular/forms';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md/modals/modal.directive';
 import { Router } from '@angular/router';
 
 import { UploadService } from '../Shared/upload.service';
-import {I18nService} from '../I18n/i18n.service';
+import { I18nService } from '../I18n/i18n.service';
 import { UploadLanguagepack } from './upload.languagepack';
 
 @Component({
@@ -12,7 +12,7 @@ import { UploadLanguagepack } from './upload.languagepack';
   styleUrls: ['./upload.component.css']
 })
 
-export class UploadComponent implements AfterViewInit {
+export class UploadComponent implements AfterViewInit, OnInit {
   @ViewChild('uploadPhotoModal') uploadPhotoModal: ModalDirective;
 
   fileToUpload: File;
@@ -20,14 +20,26 @@ export class UploadComponent implements AfterViewInit {
   img = {src: '', width: 160, alt: ''};
   classification: string;
   useClass = {fadeInFadeOut:false};
+  i18nContent = {};
 
   constructor(private uploadService: UploadService,
               private router: Router,
               private i18nService: I18nService) {
     this.i18nService.initialize(UploadLanguagepack);
+    this.i18nService.languageSelector.subscribe(language => this.initializeLanguage(language));
   }
 
-  ngAfterViewInit() {
+  ngOnInit() {
+    this.initializeLanguage();
+  }
+
+  initializeLanguage(language?) {
+    this.i18nContent['modal_upload_title'] = this.i18nService.getKey('modal_upload_title', language);
+    this.i18nContent['modal_upload_input_prepend_text'] = this.i18nService.getKey('modal_upload_input_prepend_text', language);
+    this.i18nContent['modal_upload_button_upload_text'] = this.i18nService.getKey('modal_upload_button_upload_text', language);
+  }
+
+    ngAfterViewInit() {
     this.uploadPhotoModal.show();
   }
 

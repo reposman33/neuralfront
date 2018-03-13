@@ -6,7 +6,7 @@
     <div class="modal-content">
 
       <div class="modal-header blue darken-1">
-        <h4 class="text-white" id="myModalLabel">{{i18nService.getKey('modal_upload_title')}}</h4>
+        <h4 class="text-white" id="myModalLabel">{{i18nContent['modal_upload_title']}}</h4>
         <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close" (click)="uploadPhotoModal.hide()"></button>
       </div>
 
@@ -15,7 +15,7 @@
 
             <div style="margin-bottom: 10px">
               <div class="input-group-prepend">
-                <span id="inputText" class="input-group-text">{{i18nService.getKey('modal_upload_input_prepend_text')}}</span>
+                <span id="inputText" class="input-group-text">{{i18nContent['modal_upload_input_prepend_text']}}</span>
               </div>
               <input type="file"
                      id="upload"
@@ -36,7 +36,7 @@
             <div [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut}">
               {{classification}}
             </div>
-            <button class="btn btn-primary mx-auto d-block" type="button" *ngIf="img.src.length" (click)="uploadFile()">{{i18nService.getKey('modal_upload_button_upload_text')}}</button>
+            <button class="btn btn-primary mx-auto d-block" type="button" *ngIf="img.src.length" (click)="uploadFile()">{{i18nContent['modal_upload_button_upload_text']}}</button>
           </div>
         </div>
       </div>

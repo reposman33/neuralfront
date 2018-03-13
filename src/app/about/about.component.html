@@ -1,16 +1,16 @@
 <app-header></app-header>
 
 <div class="card offset-3 w-50">
-  <h4 class="card-header blue darken-1 text-white text-center">{{i18nService.getKey('popup_title')}}
+  <h4 class="card-header blue darken-1 text-white text-center">{{i18nContent.popup_title}}
     <button type="button" class="fa fa-close pull-right blue-text" data-dismiss="modal" aria-label="Close" (click)="navigateTo('home')"></button>
   </h4>
   <div class="card-title text-center mt-3">
-    <div class="ml-3">{{i18nService.getKey('popup_body')}}</div>
+    <div class="ml-3">{{this.i18nContent['popup_body']}}</div>
   </div>
 
   <div class="card-body text-center">
-    <div class="btn btn-primary" (click)="creditsModal.show()">{{i18nService.getKey('button_credits_text')}}</div>
-    <div class="btn btn-primary pull" (click)="HiWModal.show()">{{i18nService.getKey('button_howitworks_text')}}</div>
+    <div class="btn btn-primary" (click)="creditsModal.show()">{{this.i18nContent['button_credits_text']}}</div>
+    <div class="btn btn-primary pull" (click)="HiWModal.show()">{{this.i18nContent['button_howitworks_text']}}</div>
   </div>
 </div>
 
@@ -20,13 +20,13 @@
   <div class="modal-dialog modal-notify modal-info" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="text-white">{{i18nService.getKey('modal_credits_title')}}</h4>
+        <h4 class="text-white">{{this.i18nContent['modal_credits_title']}}</h4>
         <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close"
                 (click)="creditsModal.hide()"></button>
       </div>
       <div class="modal-body">
 
-        <ul class="list-group" [innerHtml]="i18nService.getKey('modal_credits_body')"></ul>
+        <ul class="list-group" [innerHtml]="i18nContent['modal_credits_body']"></ul>
 
       </div>
     </div>
@@ -39,13 +39,13 @@
   <div class="modal-dialog modal-notify modal-info" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="text-white">{{i18nService.getKey('modal_howitworks_title')}}</h4>
+        <h4 class="text-white">{{this.i18nContent['modal_howitworks_title']}}</h4>
         <button type="button" class="fa fa-close" data-dismiss="modal" aria-label="Close"
                 (click)="HiWModal.hide()"></button>
       </div>
       <div class="modal-body">
 
-        <div class="container" [innerHtml]="i18nService.getKey('modal_howitworks_body')"></div>
+        <div class="container" [innerHtml]="this.i18nContent['modal_howitworks_body']"></div>
 
       </div>
     </div>

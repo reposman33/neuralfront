@@ -1,12 +1,12 @@
 <div class="container col-md-6 col-xs-12 col-md-offset-3">
   <div class="text-center">
 
-    <button class="btn btn-primary button--margin" id="startButton" (click)="takePhoto($event)">{{i18nService.getKey('modal_camera_take_button_text')}}
+    <button class="btn btn-primary button--margin" id="startButton" (click)="takePhoto($event)">{{i18nContent['modal_camera_take_button_text']}}
     </button>
 
     <div class="well">
-      <video id="video" #video>{{i18nService.getKey('modal_camera_video_unavailable_text')}}</video>
-      <img id="photo" [alt]="i18nService.getKey('modal_camera_img_alt_text')" #photo>
+      <video id="video" #video>{{i18nContent['modal_camera_video_unavailable_text']}}</video>
+      <img id="photo" [alt]="i18nContent['modal_camera_img_alt_text']" #photo>
     </div>
 
     <span class="text-center">{{displayText}}</span>
@@ -15,7 +15,7 @@
 
     <div class="container" *ngIf="displayButtonUpload">
       <div [ngClass]="{'fadeInFadeOut': useClass.fadeInFadeOut}">{{classification}}</div>
-      <button class="btn btn-primary button-margin" (click)="uploadPhoto()">{{i18nService.getKey('modal_camera_button_upload_text')}}</button>
+      <button class="btn btn-primary button-margin" (click)="uploadPhoto()">{{i18nContent['modal_camera_button_upload_text']}}</button>
     </div>
   </div>
   <canvas id="canvas" #canvasElement></canvas>
