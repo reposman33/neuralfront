@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { I18nService } from '../I18n/i18n.service';
+import { I18nService } from "../i18n/I18n.service";
 import { HomeLanguagepack } from './home.languagepack';
 
 @Component({

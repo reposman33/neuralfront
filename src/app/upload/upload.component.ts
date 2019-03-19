@@ -4,7 +4,7 @@ import { ModalDirective } from 'angular-bootstrap-md/modals/modal.directive';
 import { Router } from '@angular/router';
 
 import { UploadService } from '../Shared/upload.service';
-import { I18nService } from '../I18n/i18n.service';
+import { I18nService } from "../i18n/I18n.service";
 import { UploadLanguagepack } from './upload.languagepack';
 
 @Component({
